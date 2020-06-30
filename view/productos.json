@@ -1,0 +1,149 @@
+[
+    {
+        "id" : 0,
+        "description":"Banano",
+        "price":"20",
+        "quantity": "300",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 1,
+        "description":"Manzanas",
+        "price":"200",
+        "quantity": "50",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 2,
+        "description":"Peras",
+        "price":"200",
+        "quantity": "40",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 3,
+        "description":"Sandía",
+        "price":"20",
+        "quantity": "1000",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 4,
+        "description":"Papaya",
+        "price":"800",
+        "quantity": "30",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 5,
+        "description":"Naranjas",
+        "price":"100",
+        "quantity": "200",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 6,
+        "description":"Tomate",
+        "price":"150",
+        "quantity": "400",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 7,
+        "description":"Yuca",
+        "price":"500",
+        "quantity": "75",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 8,
+        "description":"Chayote",
+        "price":"175",
+        "quantity": "125",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 9,
+        "description":"Piña",
+        "price":"600",
+        "quantity": "7",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 10,
+        "description":"Tiquisque",
+        "price":"125",
+        "quantity": "85",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 11,
+        "description":"Melón",
+        "price":"500",
+        "quantity": "17",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 12,
+        "description":"Brocoli",
+        "price":"850",
+        "quantity": "15",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 13,
+        "description":"Camote",
+        "price":"125",
+        "quantity": "85",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 14,
+        "description":"Zanahoria",
+        "price":"80",
+        "quantity": "90",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 15,
+        "description":"Coliflor",
+        "price":"850",
+        "quantity": "15",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 16,
+        "description":"Fresas",
+        "price":"100",
+        "quantity": "2000",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 17,
+        "description":"Moras",
+        "price":"10",
+        "quantity": "3000",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 18,
+        "description":"Chile",
+        "price":"125",
+        "quantity": "25",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 19,
+        "description":"Platanos",
+        "price":"200",
+        "quantity": "335",
+        "date": "15-07-2019"
+    },
+    {
+        "id" : 20,
+        "description":"Cebolla",
+        "price":"100",
+        "quantity": "500",
+        "date": "15-07-2019"
+    }    
+]
