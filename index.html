@@ -9,14 +9,22 @@
     <body>
         <section class="gateway">
             <div class="ced">
-                <div id="prueba">
-                    <label for="cedula">Cédula</label>
-                    <select name="cedula" id="cedula">
-                        <option value="physical">Física</option>
-                        <option value="legal">Jurídica</option>
-                    </select>
+                <div class="options" id="opt">
+                    <div class="frame">
+                        <label for="cedula">Tipo de cédula</label>
+                        <select name="cedula" id="cedula">
+                            <option value="physical">Física</option>
+                            <option value="legal">Jurídica</option>
+                        </select>
+                    </div>
+                    <div class="frame">
+                        <label for="numced">Número de cédula</label>
+                        <input type="text" placeholder="Ejemplo: 1-2345-6789" id="ced">
+                        <input type="button" value="Ingresar" class="enter" onclick="validation()">
+                    </div>
                 </div>
             </div>
         </section>
     </body>
+    <script src="./js/index.js"></script>
 </html>
