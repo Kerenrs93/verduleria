@@ -1,6 +1,7 @@
 loadJSON()
 
 
+
 function loadJSON() {   //busca el archivo json 
 
     var object = new XMLHttpRequest();
@@ -19,18 +20,42 @@ function loadJSON() {   //busca el archivo json
 function loadProducts(products) 
 {
     var json = JSON.parse(products);
-    console.log(json)
-    var element = document.createElement("div").appendChild(document.createTextNode('prueba'));
-    var ref = document.getElementById('vegetales');
-    element.className = "vegetable";
-    document.getElementById('productos').insertBefore(element,ref);
+    var div=document.querySelector('#productos');
+    json.products.forEach(function(data, index) {
+        div.innerHTML+=
+        `<div class="vegetable" id="vegetales">
+            <img src="${data.image}" alt="${data.description}">
+            <div class="texto">
+                <p>
+                    Id : ${data.id},</p>
+                    Descripcion: ${data.description},</p>
+                    Precio: ${data.price},</p>
+                    Cantidad: ${data.quantity},</p>
+                    Fecha: ${data.date},
+                </p>
+            </div> 
+            <div class="cart"  id="carrito" onclick="buy()">
+                <img src="../img/carrito2.png" alt="Carrito de COmpra">
+            </div>
+        </div>`
+    });
+ }
 
-    // Creamos el nuevo párrafo
-    var nuevo_parrafo = document.createElement("p").appendChild(document.createTextNode('Nuevo párrafo.'));
-    
-    // Recojemos en una variable el segundo párrafo
-    var segundo_p = document.getElementById("padre").getElementsByTagName("p")[1];
-    
-    // Y ahora lo insertamos
-    document.getElementById("padre").insertBefore(nuevo_parrafo,segundo_p);
-}
+ function buy() 
+ {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";//abre el modal
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+    }
+ }

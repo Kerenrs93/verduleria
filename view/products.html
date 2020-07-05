@@ -4,30 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="../css/modal.css">
     <title>Productos</title>
 </head>
 <body >
     <section class="list">
         <div class="products" id="productos">
-            <div class="vegetable" id="vegetales">
-                <img src="https://cdn.pixabay.com/photo/2015/01/27/18/32/banana-614090_960_720.jpg" alt="Banano">
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modalContent">
+                    <div>
+                        <span class="close">&times;</span>
+                    </div>
+                    <br>
+                    <div>
+                        <h3>Realizar Pedido</h3>
+                        <div class="quantity">
+                            <label for="cant">Cantidad a comprar</label>
+                            <input type="number" id="cant">
+                        </div>
+                        <div class="add">
+                            <input type="button" value="Agregar al carrito">
+                            <input type="button" value="Previsualizacion">
+                        </div>
+                    </div>
+                </div>
             </div>
-             <div class="vegetable">
-                <img src="https://media.istockphoto.com/photos/red-apples-picture-id1141708425?b=1&k=6&m=1141708425&s=170667a&w=0&h=D3ysTwfTmq7Xny5T19Ef4EMOmwGgtYIYUsgiZwnvDHE=" alt="Banano">
-            </div>
-            <div id="padre">
-                <p>Un párrafo.</p>
-                <p>Otro párrafo.</p>
-            </div>
-           <!-- <div class="vegetable">
-                <img src="https://media.istockphoto.com/photos/anjou-pears-picture-id610032764?b=1&k=6&m=610032764&s=170667a&w=0&h=t11ZOno7oPZiKlMDMOysehvXn_7woeEgpTuaV1-AjCw=" alt="Banano">
-            </div>
-            <div class="vegetable">
-                <img src="https://cdn.pixabay.com/photo/2015/06/19/16/48/watermelon-815072__340.jpg" alt="Banano">
-            </div>
-            <div class="vegetable">
-                <img src="https://media.istockphoto.com/photos/papaya-with-seed-in-old-wood-picture-id1155972962?b=1&k=6&m=1155972962&s=170667a&w=0&h=Rcohaw41hoHoonyUEk9gHgujYSZpXMA2e0pduB6AVeY=" alt="Banano">
-            </div> -->
         </div>
     </section>
 </body>
