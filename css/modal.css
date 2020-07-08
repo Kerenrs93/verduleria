@@ -16,8 +16,8 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-    height: 30%;
+    width: 50%;
+    /* height: 30%; */
 }
 .close {
     color: #aaaaaa;
@@ -47,7 +47,9 @@
       border-radius: 20px;
       padding: 5px;
   }
-
+  .cart{
+    cursor: pointer;
+  }
   .add{
       display: block;
       float: right;
@@ -62,4 +64,32 @@
     background-color: #c1eb58;
     font-family: calibri;
     font-size: 15px;
+  }
+
+  #cant:focus {
+    border-color: red;
+  }
+  .add input:hover{
+    cursor: pointer;
+  }
+  .reservation{
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  table{
+    display: none;
+    text-align: center;
+    font-family: calibri;
+    border-spacing: 0px 5px;
+    border-collapse: collapse;
+  }
+  th{
+    background-color: #99ff99;
+    border:1px solid black;
+    padding: 5px;
+  }
+  td{
+    border:1px solid black;
   }

@@ -17,16 +17,42 @@
                         <span class="close">&times;</span>
                     </div>
                     <br>
-                    <div>
+                    <div class="info">
                         <h3>Realizar Pedido</h3>
-                        <div class="quantity">
+                        <div class="quantity" id="check">
                             <label for="cant">Cantidad a comprar</label>
-                            <input type="number" id="cant">
+                            <input type="text" id="cant">
                         </div>
-                        <div class="add">
-                            <input type="button" value="Agregar al carrito">
-                            <input type="button" value="Previsualizacion">
+                        <div class="add" >
+                            <input type="button" value="Agregar al carrito" onclick="vegetablesValidation()">
+                            <input type="button" value="Previsualizacion" class="pre">
                         </div>
+                    </div>
+                    <div class="reservation">
+                        <table class="bill">
+                            <thead >
+                                <tr>
+                                    <th>Cantidad</th>
+                                    <th>Descripción</th>
+                                    <th>Precio</th>
+                                    <th>Subtotal</th>
+                                    <th>Descuento</th>
+                                    <th>Con IVA</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>Tiquisque</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -34,4 +60,5 @@
     </section>
 </body>
 <script type="text/javascript" src="../js/products.js"></script>
+<script type="text/javascript" src="../js/modal.js"></script>
 </html>
