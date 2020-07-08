@@ -1,3 +1,4 @@
+var array=[]
 function vegetablesValidation() 
 {
     var reg = new RegExp('^\\d+$');
@@ -26,18 +27,17 @@ function validateQuantity(quantity)
     quantityTotal=total.getAttribute('data-quantity');
 
     if(quantityTotal > quantity){
-        // var object={
-        //     quantity:`${quantity}`,
-        //     description:`${description}`,
-        //     price:`${price}`,
-        //     subtotal: "",
-        //     descuento: "",
-        //     IVA: "",
-        //     total:""
-        // };
-        //  var array=[]
-        //  array.push(object);
-        //console.log(array);
+        var object={
+            quantity:`${quantity}`,
+            description:`${description}`,
+            price:`${price}`,
+            subtotal: "",
+            descuento: "",
+            IVA: "",
+            total:""
+        };
+        array.push(object);
+        console.log(array);
         // var bill=document.getElementsByClassName("bill");
         // bill.style.display = "block";//abre la tabla
         console.log("Comprado");
