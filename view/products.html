@@ -21,36 +21,27 @@
                         <h3>Realizar Pedido</h3>
                         <div class="quantity" id="check">
                             <label for="cant">Cantidad a comprar</label>
-                            <input type="text" id="cant">
+                            <input type="number" id="cant">
                         </div>
                         <div class="add" >
                             <input type="button" value="Agregar al carrito" onclick="vegetablesValidation()">
-                            <input type="button" value="Previsualizacion" class="pre">
+                            <input type="button" value="Previsualizacion" class="pre" onclick="loadTable()">
                         </div>
                     </div>
                     <div class="reservation">
-                        <table class="bill">
+                        <table id="bill">
                             <thead >
                                 <tr>
                                     <th>Cantidad</th>
                                     <th>Descripción</th>
                                     <th>Precio</th>
-                                    <th>Subtotal</th>
-                                    <th>Descuento</th>
-                                    <th>Con IVA</th>
-                                    <th>Total</th>
+                                    <th>Subtotal (colones)</th>
+                                    <th>Descuento (5%)</th>
+                                    <th>Con IVA (13%)</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td>Tiquisque</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                            <tbody id="product">
+                                
                             </tbody>
                         </table>
                     </div>

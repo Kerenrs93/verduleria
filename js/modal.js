@@ -5,7 +5,8 @@ function vegetablesValidation()
     var quantity= document.getElementById("cant");
     if (reg.test(quantity.value)) 
     {
-        validateQuantity(quantity.value)
+        //console.log("valor inicial "+quantity.value);
+        validateQuantity()
     }else{
         var element = document.createElement('p');
         element.setAttribute("color","red");
@@ -13,20 +14,20 @@ function vegetablesValidation()
         var ref = document.getElementById('cant').getElementsByTagName('input')[0];
         document.getElementById('check').insertBefore(content,ref);
         setTimeout(()=>document.getElementById('check').removeChild(content), 10000); 
-        quantity.focus();
+        //quantity.focus();
     }
 }
 
 
-function validateQuantity(quantity) 
+function validateQuantity() 
 {
-    var total = document.querySelector(".info");
-    id=total.getAttribute('id');
-    description=total.getAttribute('data-description');
-    price=total.getAttribute('data-price');
-    quantityTotal=total.getAttribute('data-quantity');
-
-    if(quantityTotal > quantity){
+    let quantity= new Number (document.getElementById("cant").value);
+    let data = document.querySelector(".info");
+    let quantityTotal=new Number (data.getAttribute('data-quantity'));
+    let description=data.getAttribute('data-description');
+    let price=data.getAttribute('data-price');
+    if(quantity < quantityTotal){
+        console.log("reservado");
         var object={
             quantity:`${quantity}`,
             description:`${description}`,
@@ -37,19 +38,51 @@ function validateQuantity(quantity)
             total:""
         };
         array.push(object);
-        console.log(array);
-        // var bill=document.getElementsByClassName("bill");
-        // bill.style.display = "block";//abre la tabla
-        console.log("Comprado");
     }else{
         
-        console.log("no tenemos esa cantidad");
-        console.log(`cantidad que esta comprando ${quantity}`);
+        console.log("no se puede reservar");
+        console.log(`cantidad que esta reservando ${quantity}`);
         console.log(`cantidad que tenemos ${quantityTotal}`);
-        
     }
 }
 
+
+function loadTable()
+{
+    var descuento=0;
+    var precioDescuento=0;
+    var priceIva=0;
+    var iva=0;
+    var cantProdut=array.length;
+    let bill= document.getElementById("bill");
+    bill.style.display = "block";//abre la tabla
+    let column=document.querySelector('#product');
+    console.log(array["quantity"]);
+    array.forEach(function(data) {
+        let subtotal=data.quantity*data.price;
+        if(cantProdut> 4 || data.quantity>4 ){
+            descuento=subtotal*(0.05);
+            precioDescuento=subtotal-descuento;
+            iva=precioDescuento*(0.13);
+            console.log(precioDescuento);
+            priceIva=precioDescuento+iva;
+        }else{
+            iva=subtotal*(0.13);
+            priceIva=subtotal+iva;
+        }
+        
+        column.innerHTML+=`
+            <tr >
+                <td>${data.quantity}</td>
+                <td> ${data.description}</td>
+                <td>${data.price}</td>
+                <td>${subtotal}</td>
+                <td>${precioDescuento}</td>
+                <td>${priceIva}</td>
+            </tr>
+        `;
+    });
+}
 
 //   function checkForm(form)
 //   {

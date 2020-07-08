@@ -172,53 +172,7 @@ function loadJSON() {   //busca el archivo json
             image: "https://cdn.pixabay.com/photo/2016/05/16/22/47/onions-1397037_960_720.jpg"
         }    
     ];
-    
     loadProducts(products);
-
-    // var object = {
-    //         id : 0,
-    //         description:"Banano",
-    //         price:20,
-    //         quantity: 300,
-    //         date: "15-07-2019",
-    //         image: "https://cdn.pixabay.com/photo/2015/01/27/18/32/banana-614090_960_720.jpg"
-    //     };
-    // var products=[
-    //         {
-    //             "id" : 0,
-    //             "description":"Banano",
-    //             "price":"20",
-    //             "quantity": "300",
-    //             "date": "15-07-2019",
-    //             "image": "https://cdn.pixabay.com/photo/2015/01/27/18/32/banana-614090_960_720.jpg"
-    //         },
-    //         {
-    //             "id" : 1,
-    //             "description":"Manzanas",
-    //             "price":"200",
-    //             "quantity": "50",
-    //             "date": "15-07-2019",
-    //             "image": "https://media.istockphoto.com/photos/red-apples-picture-id1141708425?b=1&k=6&m=1141708425&s=170667a&w=0&h=D3ysTwfTmq7Xny5T19Ef4EMOmwGgtYIYUsgiZwnvDHE="
-    //         },
-    //         {
-    //             "id" : 2,
-    //             "description":"Peras",
-    //             "price":"200",
-    //             "quantity": "40",
-    //             "date": "15-07-2019",
-    //             "image": "https://media.istockphoto.com/photos/anjou-pears-picture-id610032764?b=1&k=6&m=610032764&s=170667a&w=0&h=t11ZOno7oPZiKlMDMOysehvXn_7woeEgpTuaV1-AjCw="
-    //         }];
-    // object.id3 = 400;
-    // object["id4"] = 500;
-    // var array=[]
-    // array.push(object);
-    // console.log(object);
-    // console.log(array);
-    //  array.push(products);
-    // // 
-    // console.log(products);
-    // products.push(object);
-    // console.log(products);
  }
 
 
