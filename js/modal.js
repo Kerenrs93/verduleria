@@ -10,19 +10,11 @@ function vegetablesValidation()
     {
         validateQuantity();
     }else{
-        // let ref = document.getElementById( 'cant' );
-        // let content = document.createElement( 'p' ); 
-        // content.textContent = "Solo se permiten números";
-        // content.style.color="red";
-        // ref.parentNode.insertBefore( content, ref.nextSibling );
-        // setTimeout(()=>ref.parentNode.removeChild(content),5000);
         let active=pedido.getAttribute("data-active");
         let msj="Solo se permiten números";
         msjError(pedido,active,msj);
     }
 }
-
-
 
 function validateQuantity() 
 {
@@ -48,11 +40,6 @@ function validateQuantity()
         };
         array.push(object);
         document.getElementById("loadTable").disabled = false;
-    }else{
-        
-        console.log("no se puede reservar");
-        console.log(`cantidad que esta reservando ${quantity}`);
-        console.log(`cantidad que tenemos ${quantityTotal}`);
     }
 }
 
