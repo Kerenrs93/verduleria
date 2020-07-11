@@ -29,7 +29,9 @@ function validateQuantity()
     let quantityTotal=new Number (data.getAttribute('data-quantity'));
     let description=data.getAttribute('data-description');
     let price=data.getAttribute('data-price');
+    let color = quantity > 4 ? "green" : "blue";
     if(quantity < quantityTotal){
+        
         var object={
             id:`id${id}`,
             quantity:`${quantity}`,
@@ -38,7 +40,8 @@ function validateQuantity()
             subtotal: "",
             descuento: "",
             IVA: "",
-            total:""
+            total:"",
+            color:color
         };
         array.push(object);
         document.getElementById("loadTable").disabled = false;
@@ -97,7 +100,7 @@ function loadTable()
 
     bill.style.display = "block";//abre la tabla
 
-    let column=document.querySelector('#product');
+    let row="";
 
     array.forEach(function(data) {
         let subtotal=data.quantity*data.price;
@@ -111,28 +114,18 @@ function loadTable()
             priceIva=subtotal+iva;
         }
         
-        column.innerHTML+=`
+        row +=`
             <tr>
                 <td>${data.quantity}</td>
                 <td>${data.description}</td>
                 <td>${data.price}</td>
                 <td>${subtotal}</td>
-                <td id=${data.id}>${precioDescuento}</td>
-                <td id=iva_${data.id}>${priceIva}</td>
+                <td style="color:${data.color};">${precioDescuento}</td>
+                <td style='color:${data.color}'>${priceIva}</td>
             </tr>
         `;
-
-        let descuento2=document.getElementById(data.id);
-        let iva2=document.getElementById(`iva_${data.id}`);
-        if(cantProdut> 4 || data.quantity>4 ){
-            descuento2.style.color="green";
-            iva2.style.color="green";
-        }else{
-            descuento2.style.color="blue";
-            iva2.style.color="blue";
-        }
-        cont++;
-        console.log(cont);
+        console.log(data.color);
+        document.getElementById('product').innerHTML=row;
         montoTotal=priceIva+montoTotal;
     });
 
