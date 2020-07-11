@@ -225,4 +225,6 @@ function loadProducts(products)
     info.setAttribute('data-quantity',quantity);
     info.setAttribute('data-description',description);
     info.setAttribute('data-price',price);
+    document.getElementById("loadTable").disabled = true;
  }
+

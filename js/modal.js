@@ -1,34 +1,37 @@
-var array=[]
+var array=[];
+load();
+
 function vegetablesValidation() 
 {
     var reg = new RegExp('^\\d+$');
     var quantity= document.getElementById("cant");
+
     if (reg.test(quantity.value)) 
     {
-        //console.log("valor inicial "+quantity.value);
-        validateQuantity()
+        validateQuantity();
     }else{
-        var element = document.createElement('p');
-        element.setAttribute("color","red");
-        var content=element.appendChild(document.createTextNode('Solo se permiten números'));
-        var ref = document.getElementById('cant').getElementsByTagName('input')[0];
-        document.getElementById('check').insertBefore(content,ref);
-        setTimeout(()=>document.getElementById('check').removeChild(content), 10000); 
-        //quantity.focus();
+        let ref = document.getElementById( 'cant' );
+        let content = document.createElement( 'p' ); 
+        content.textContent = "Solo se permiten números";
+        content.style.color="red";
+        ref.parentNode.insertBefore( content, ref.nextSibling );
+        setTimeout(()=>ref.parentNode.removeChild(content),5000);
     }
 }
+
 
 
 function validateQuantity() 
 {
     let quantity= new Number (document.getElementById("cant").value);
     let data = document.querySelector(".info");
+    let id=data.getAttribute("id");
     let quantityTotal=new Number (data.getAttribute('data-quantity'));
     let description=data.getAttribute('data-description');
     let price=data.getAttribute('data-price');
     if(quantity < quantityTotal){
-        console.log("reservado");
         var object={
+            id:`id${id}`,
             quantity:`${quantity}`,
             description:`${description}`,
             price:`${price}`,
@@ -38,6 +41,7 @@ function validateQuantity()
             total:""
         };
         array.push(object);
+        document.getElementById("loadTable").disabled = false;
     }else{
         
         console.log("no se puede reservar");
@@ -47,24 +51,60 @@ function validateQuantity()
 }
 
 
+function load() {
+    var pedido = document.getElementById("check");
+
+
+    pedido.addEventListener("focus", function( event ) {
+    event.target.style.background = "white";    
+    }, true);
+    
+    pedido.addEventListener("blur", function( event ) {
+        let quantity= new Number (document.getElementById("cant").value);
+        let data = document.querySelector(".info");
+        let quantityTotal=new Number (data.getAttribute('data-quantity'));
+
+        if(quantity > quantityTotal)
+        {
+            let active=pedido.getAttribute("data-active");
+            if(active=="true"){
+                pedido.setAttribute('data-active', "false");
+                event.target.style.background = "red"; 
+                let ref = document.getElementById( 'cant' );
+                let content = document.createElement( 'p' ); 
+                content.textContent = "No contamos con la cantidad del producto que requiere";
+                content.style.color="red";
+                ref.parentNode.insertBefore( content, ref.nextSibling );
+                setTimeout(()=>{ref.parentNode.removeChild(content);pedido.setAttribute('data-active', "true")}, 5000);// elimar despues de 10 segundos
+            }else if(active=="false"){
+                console.log("TODAVIA NO PUEDE ENTRAR");
+            }
+        }
+    }, true);
+  }
+
+
 function loadTable()
 {
-    var descuento=0;
-    var precioDescuento=0;
-    var priceIva=0;
-    var iva=0;
-    var cantProdut=array.length;
+    let descuento=0;
+    let precioDescuento=0;
+    let priceIva=0;
+    let iva=0;
+    let montoTotal=0;
+    let cantProdut=array.length;
+    let cont=0;
     let bill= document.getElementById("bill");
+
     bill.style.display = "block";//abre la tabla
+
     let column=document.querySelector('#product');
-    console.log(array["quantity"]);
+
     array.forEach(function(data) {
         let subtotal=data.quantity*data.price;
         if(cantProdut> 4 || data.quantity>4 ){
             descuento=subtotal*(0.05);
             precioDescuento=subtotal-descuento;
             iva=precioDescuento*(0.13);
-            console.log(precioDescuento);
             priceIva=precioDescuento+iva;
         }else{
             iva=subtotal*(0.13);
@@ -72,43 +112,37 @@ function loadTable()
         }
         
         column.innerHTML+=`
-            <tr >
+            <tr>
                 <td>${data.quantity}</td>
-                <td> ${data.description}</td>
+                <td>${data.description}</td>
                 <td>${data.price}</td>
                 <td>${subtotal}</td>
-                <td>${precioDescuento}</td>
-                <td>${priceIva}</td>
+                <td id=${data.id}>${precioDescuento}</td>
+                <td id=iva_${data.id}>${priceIva}</td>
             </tr>
         `;
+
+        let descuento2=document.getElementById(data.id);
+        let iva2=document.getElementById(`iva_${data.id}`);
+        if(cantProdut> 4 || data.quantity>4 ){
+            descuento2.style.color="green";
+            iva2.style.color="green";
+        }else{
+            descuento2.style.color="blue";
+            iva2.style.color="blue";
+        }
+        cont++;
+        console.log(cont);
+        montoTotal=priceIva+montoTotal;
     });
+
+    let end=document.getElementById("end");
+    end.setAttribute("data-total",montoTotal);
+    document.getElementById("loadTable").disabled = true;
 }
 
-//   function checkForm(form)
-//   {
-//    var reg = new RegExp('^\\d+$');  //Expresion regular solo numeros
-
-//     // Si está vacío
-//     if(form.inputfield.value == "") {
-//      var div=document.querySelector('#validar');
-//      div.innerHTML+=`<p id='myp'style='color:red'> No se permite vacíos </p>`;
-//      setTimeout(function(){ document.getElementById("myp").innerHTML = "";}, 2000);
-
-//      form.inputfield.focus();    //Enfocando el input
-//       return false;
-//     } else{
-
-//     }
-//     if(!reg.test(form.inputfield.value)) {  // Si no cumple con la expresion regular
-//      var div=document.querySelector('#validar');
-//      div.innerHTML+=`<p id='myp' style='color:red'> Solo se permiten números </p> `;
-//      setTimeout(function(){ document.getElementById("myp").innerHTML = "";}, 2000);
-    
-//      form.inputfield.focus();
-//      return false;
-//     }
-//     // Si cumple con todo
-//       alert("Bienvenido!!");
-//       return true;
-//   }
-
+function total() {
+    let end=document.getElementById("end");
+    let montoTotal= end.getAttribute("data-total");
+    alert(`el monto total a cancelar es ${montoTotal}`);
+}

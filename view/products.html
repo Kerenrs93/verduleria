@@ -17,15 +17,15 @@
                         <span class="close">&times;</span>
                     </div>
                     <br>
-                    <div class="info">
+                    <div class="info" id="pedido" >
                         <h3>Realizar Pedido</h3>
-                        <div class="quantity" id="check">
+                        <div class="quantity" id="check" data-active="true">
                             <label for="cant">Cantidad a comprar</label>
                             <input type="number" id="cant">
                         </div>
                         <div class="add" >
                             <input type="button" value="Agregar al carrito" onclick="vegetablesValidation()">
-                            <input type="button" value="Previsualizacion" class="pre" onclick="loadTable()">
+                            <input type="button" value="Previsualizacion" id="loadTable" class="pre" onclick="loadTable()">
                         </div>
                     </div>
                     <div class="reservation">
@@ -44,6 +44,9 @@
                                 
                             </tbody>
                         </table>
+                    </div>
+                    <div class="botonPedido">
+                        <input type="button" value="Enviar pedido" id="end" onclick="total()">
                     </div>
                 </div>
             </div>
