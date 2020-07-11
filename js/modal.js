@@ -3,19 +3,22 @@ load();
 
 function vegetablesValidation() 
 {
-    var reg = new RegExp('^\\d+$');
-    var quantity= document.getElementById("cant");
-
+    let reg = new RegExp('^\\d+$');
+    let quantity= document.getElementById("cant");
+    let pedido = document.getElementById("check");
     if (reg.test(quantity.value)) 
     {
         validateQuantity();
     }else{
-        let ref = document.getElementById( 'cant' );
-        let content = document.createElement( 'p' ); 
-        content.textContent = "Solo se permiten números";
-        content.style.color="red";
-        ref.parentNode.insertBefore( content, ref.nextSibling );
-        setTimeout(()=>ref.parentNode.removeChild(content),5000);
+        // let ref = document.getElementById( 'cant' );
+        // let content = document.createElement( 'p' ); 
+        // content.textContent = "Solo se permiten números";
+        // content.style.color="red";
+        // ref.parentNode.insertBefore( content, ref.nextSibling );
+        // setTimeout(()=>ref.parentNode.removeChild(content),5000);
+        let active=pedido.getAttribute("data-active");
+        let msj="Solo se permiten números";
+        msjError(pedido,active,msj);
     }
 }
 
@@ -70,18 +73,9 @@ function load() {
         if(quantity > quantityTotal)
         {
             let active=pedido.getAttribute("data-active");
-            if(active=="true"){
-                pedido.setAttribute('data-active', "false");
-                event.target.style.background = "red"; 
-                let ref = document.getElementById( 'cant' );
-                let content = document.createElement( 'p' ); 
-                content.textContent = "No contamos con la cantidad del producto que requiere";
-                content.style.color="red";
-                ref.parentNode.insertBefore( content, ref.nextSibling );
-                setTimeout(()=>{ref.parentNode.removeChild(content);pedido.setAttribute('data-active', "true")}, 5000);// elimar despues de 10 segundos
-            }else if(active=="false"){
-                console.log("TODAVIA NO PUEDE ENTRAR");
-            }
+            event.target.style.background = "red"; 
+            let msj="No contamos con la cantidad del producto que requiere";
+            msjError(pedido,active,msj);
         }
     }, true);
   }
@@ -138,4 +132,16 @@ function total() {
     let end=document.getElementById("end");
     let montoTotal= end.getAttribute("data-total");
     alert(`el monto total a cancelar es ${montoTotal}`);
+}
+
+function msjError(pedido,active,msj) {
+    if(active=="true"){
+        pedido.setAttribute('data-active', "false");
+        let ref = document.getElementById( 'cant' );
+        let content = document.createElement( 'p' ); 
+        content.textContent = msj;
+        content.style.color="red";
+        ref.parentNode.insertBefore( content, ref.nextSibling );
+        setTimeout(()=>{ref.parentNode.removeChild(content);pedido.setAttribute('data-active', "true")}, 5000);// elimar despues de 10 segundos
+    } 
 }

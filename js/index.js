@@ -16,7 +16,7 @@ function validation(){
                 numCedula.style.cssText='border: 2px solid red;border-radius: 5px;padding: 5px;';
                 let data = document.querySelector("#msj");
                 let active=data.getAttribute("data-active");
-                 msj(data,active);        
+                msjError(data,active);        
             }
         } else if (identification=="legal") 
         {
@@ -29,7 +29,7 @@ function validation(){
                 numCedula.style.cssText='border: 2px solid red;border-radius: 5px;padding: 5px;';
                 let data = document.querySelector("#msj");
                 let active=data.getAttribute("data-active");
-                 msj(data,active);        
+                msjError(data,active);        
             }
         } 
 
@@ -38,7 +38,7 @@ function validation(){
     
 }
 
-function msj(data,active) {
+function msjError(data,active) {
     if(active=="true"){
         data.setAttribute('data-active', "false");
         let ref = document.getElementById( 'msj' );//referencia de donde lo vamos a colocar
@@ -47,7 +47,5 @@ function msj(data,active) {
         content.style.color="red";
         ref.parentNode.insertBefore( content, ref.nextSibling );// insertar debajo de la etiqueta de referencia
         setTimeout(()=>{ref.parentNode.removeChild(content);data.setAttribute('data-active', "true")}, 5000);// elimar despues de 10 segundos
-    }else if(active=="false"){
-        console.log("TODAVIA NO PUEDE ENTRAR");
     }  
 }
